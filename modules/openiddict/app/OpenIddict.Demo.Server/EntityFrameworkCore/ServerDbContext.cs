@@ -21,8 +21,6 @@ public class ServerDbContext : AbpDbContext<ServerDbContext>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureIdentity();
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
@@ -30,5 +28,7 @@ public class ServerDbContext : AbpDbContext<ServerDbContext>
         builder.ConfigureTenantManagement();
         
         builder.ConfigureOpenIddict();
+
+        base.OnModelCreating(builder);
     }
 }

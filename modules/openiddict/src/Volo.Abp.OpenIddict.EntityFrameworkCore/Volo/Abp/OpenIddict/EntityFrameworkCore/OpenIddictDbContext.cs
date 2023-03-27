@@ -29,8 +29,8 @@ public class OpenIddictDbContext : AbpDbContext<OpenIddictDbContext>, IOpenIddic
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureOpenIddict();
+
+        base.OnModelCreating(builder);
     }
 }

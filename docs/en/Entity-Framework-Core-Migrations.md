@@ -112,8 +112,6 @@ public class BookStoreDbContext :
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-        
         /* Include modules to your migration db context */
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
@@ -131,6 +129,8 @@ public class BookStoreDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base properties
         //    //...
         //});
+
+        base.OnModelCreating(builder);
     }
 }
 ````
@@ -220,12 +220,12 @@ namespace BookStore.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
             builder.ConfigurePermissionManagement();
             builder.ConfigureSettingManagement();
             builder.ConfigureAuditLogging();
+
+            base.OnModelCreating(builder);
         }
     }
 }

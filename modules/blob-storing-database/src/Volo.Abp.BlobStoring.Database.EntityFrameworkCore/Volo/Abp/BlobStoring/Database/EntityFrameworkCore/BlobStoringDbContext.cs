@@ -19,8 +19,8 @@ public class BlobStoringDbContext : AbpDbContext<BlobStoringDbContext>, IBlobSto
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureBlobStoring();
+
+        base.OnModelCreating(builder);
     }
 }

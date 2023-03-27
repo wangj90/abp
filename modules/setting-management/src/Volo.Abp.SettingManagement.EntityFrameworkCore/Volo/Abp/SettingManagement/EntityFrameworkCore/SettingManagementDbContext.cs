@@ -19,8 +19,8 @@ public class SettingManagementDbContext : AbpDbContext<SettingManagementDbContex
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureSettingManagement();
+
+        base.OnModelCreating(builder);
     }
 }

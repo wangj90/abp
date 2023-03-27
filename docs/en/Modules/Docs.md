@@ -222,8 +222,6 @@ If you choose Entity Framework as your database provider, you need to configure 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
 
             builder.ConfigurePermissionManagement();
@@ -246,6 +244,8 @@ If you choose Entity Framework as your database provider, you need to configure 
             /* Configure your own tables/entities inside the ConfigureQaDoc method */
 
             builder.ConfigureMyProject();
+
+            base.OnModelCreating(builder);
         }
     }
   ```

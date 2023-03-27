@@ -19,8 +19,6 @@ public class MyProjectNameDbContext : AbpDbContext<MyProjectNameDbContext>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         /* Include modules to your migration db context */
 
         builder.ConfigurePermissionManagement();
@@ -32,5 +30,8 @@ public class MyProjectNameDbContext : AbpDbContext<MyProjectNameDbContext>
         builder.ConfigureTenantManagement();
 
         /* Configure your own entities here */
+
+
+        base.OnModelCreating(builder);
     }
 }

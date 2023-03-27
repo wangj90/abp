@@ -65,8 +65,8 @@ public static string Schema { get; set; } = AbpIdentityConsts.DefaultDbSchema;
 ````C#
 protected override void OnModelCreating(ModelBuilder builder)
 {
-    base.OnModelCreating(builder);
     builder.ConfigureIdentity();
+    base.OnModelCreating(builder);
 }
 ````
 

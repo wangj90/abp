@@ -118,12 +118,12 @@ typeof(AbpIdentityServerEntityFrameworkCoreModule),
   ...
   protected override void OnModelCreating(ModelBuilder builder)
   {
-      base.OnModelCreating(builder);
-  
       /* Include modules to your migration db context */
   
       ...
       builder.ConfigureOpenIddict();
+
+      base.OnModelCreating(builder);
   ```
   
   with 
@@ -135,12 +135,12 @@ typeof(AbpIdentityServerEntityFrameworkCoreModule),
   ...
   protected override void OnModelCreating(ModelBuilder builder)
   {
-      base.OnModelCreating(builder);
-  
       /* Include modules to your migration db context */
   
       ...
       builder.ConfigureIdentityServer();
+
+      base.OnModelCreating(builder);
   ```
 
 > Not: You need to create new migration after updating the fluent api. Navigate to *EntityFrameworkCore* folder and add a new migration. Ex, `dotnet ef migrations add Updated_To_IdentityServer `

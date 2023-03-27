@@ -113,8 +113,6 @@ public class BookStoreDbContext : AbpDbContext<BookStoreDbContext>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         /* Configure the shared tables (with included modules) here */
 
         builder.Entity<AppUser>(b =>
@@ -132,6 +130,8 @@ public class BookStoreDbContext : AbpDbContext<BookStoreDbContext>
 
         /* Configure your own tables/entities inside the ConfigureBookStore method */
         builder.ConfigureBookStore();
+
+        base.OnModelCreating(builder);
     }
 }
 ````
@@ -178,8 +178,6 @@ public class BookStoreMigrationsDbContext : AbpDbContext<BookStoreMigrationsDbCo
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         /* Include modules to your migration db context */
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
@@ -192,6 +190,8 @@ public class BookStoreMigrationsDbContext : AbpDbContext<BookStoreMigrationsDbCo
 
         /* Configure your own tables/entities inside the ConfigureBookStore method */
         builder.ConfigureBookStore();
+
+        base.OnModelCreating(builder);
     }
 }
 ````
@@ -256,10 +256,10 @@ public class BackgroundJobsDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         //Reuse the same extension method!
         builder.ConfigureBackgroundJobs();
+
+        base.OnModelCreating(builder);
     }
 }
 ````
@@ -360,13 +360,11 @@ namespace Acme.BookStore.Roles
 public DbSet<AppRole> Roles { get; set; }
 ````
 
-然后在 `OnModelCreating` 方法中配置映射(调用 `base.OnModelCreating(builder)` 之后):
+然后在 `OnModelCreating` 方法中配置映射(调用 `base.OnModelCreating(builder)` 之前):
 
 ````csharp
 protected override void OnModelCreating(ModelBuilder builder)
 {
-    base.OnModelCreating(builder);
-
     /* Configure the shared tables (with included modules) here */
 
     //CONFIGURE THE AppRole ENTITY
@@ -382,6 +380,8 @@ protected override void OnModelCreating(ModelBuilder builder)
     /* Configure your own tables/entities inside the ConfigureBookStore method */
 
     builder.ConfigureBookStore();
+
+    base.OnModelCreating(builder);
 }
 ````
 
@@ -661,13 +661,13 @@ public class BookStoreSecondMigrationsDbContext :
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         /* Include modules to your migration db context */
 
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
         builder.ConfigureAuditLogging();
+
+        base.OnModelCreating(builder);
     }
 }
 ````

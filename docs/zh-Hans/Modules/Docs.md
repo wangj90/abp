@@ -209,8 +209,6 @@ abp install-libs
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
 
             builder.ConfigurePermissionManagement();
@@ -233,6 +231,8 @@ abp install-libs
             /* Configure your own tables/entities inside the ConfigureQaDoc method */
 
             builder.ConfigureMyProject();
+
+            base.OnModelCreating(builder);
         }
     }
   ```

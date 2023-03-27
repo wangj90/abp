@@ -25,9 +25,9 @@ namespace Volo.Docs.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             builder.ConfigureDocs();
+
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -34,9 +34,9 @@ namespace Volo.Blogging.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             builder.ConfigureBlogging();
+
+            base.OnModelCreating(builder);
         }
     }
 }

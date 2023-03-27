@@ -183,8 +183,6 @@ Then navigate to the `OnModelCreating` method in the `TodoAppDbContext` class an
 ````csharp
 protected override void OnModelCreating(ModelBuilder builder)
 {
-    base.OnModelCreating(builder);
-
     /* Include modules to your migration db context */
 
     builder.ConfigurePermissionManagement();
@@ -195,6 +193,8 @@ protected override void OnModelCreating(ModelBuilder builder)
     {
         b.ToTable("TodoItems");
     });
+
+    base.OnModelCreating(builder);
 }
 ````
 

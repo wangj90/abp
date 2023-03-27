@@ -130,12 +130,12 @@ typeof(AbpOpenIddictEntityFrameworkCoreModule),
   ...
   protected override void OnModelCreating(ModelBuilder builder)
   {
-      base.OnModelCreating(builder);
-  
       /* Include modules to your migration db context */
   
       ...
       builder.ConfigureIdentityServer();
+      
+      base.OnModelCreating(builder);
   ```
 
   with 
@@ -145,12 +145,12 @@ typeof(AbpOpenIddictEntityFrameworkCoreModule),
   ...
   protected override void OnModelCreating(ModelBuilder builder)
   {
-      base.OnModelCreating(builder);
-  
       /* Include modules to your migration db context */
   
       ...
       builder.ConfigureOpenIddict();
+
+      base.OnModelCreating(builder);
   ```
 
 ### MongoDB Layer

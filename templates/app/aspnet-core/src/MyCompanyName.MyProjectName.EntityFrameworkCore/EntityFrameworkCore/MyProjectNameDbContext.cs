@@ -60,8 +60,6 @@ public class MyProjectNameDbContext :
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         /* Include modules to your migration db context */
 
         builder.ConfigurePermissionManagement();
@@ -81,5 +79,7 @@ public class MyProjectNameDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+        base.OnModelCreating(builder);
     }
 }

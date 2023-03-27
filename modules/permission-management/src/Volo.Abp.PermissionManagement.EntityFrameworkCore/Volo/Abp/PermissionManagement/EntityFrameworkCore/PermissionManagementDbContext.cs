@@ -19,8 +19,8 @@ public class PermissionManagementDbContext : AbpDbContext<PermissionManagementDb
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigurePermissionManagement();
+
+        base.OnModelCreating(builder);
     }
 }

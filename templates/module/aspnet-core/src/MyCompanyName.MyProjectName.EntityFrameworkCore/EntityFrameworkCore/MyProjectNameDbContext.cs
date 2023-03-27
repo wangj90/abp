@@ -19,8 +19,8 @@ public class MyProjectNameDbContext : AbpDbContext<MyProjectNameDbContext>, IMyP
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureMyProjectName();
+
+        base.OnModelCreating(builder);
     }
 }

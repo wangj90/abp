@@ -17,8 +17,8 @@ public class AbpAuditLoggingDbContext : AbpDbContext<AbpAuditLoggingDbContext>, 
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureAuditLogging();
+
+        base.OnModelCreating(builder);
     }
 }

@@ -39,7 +39,8 @@ public class CmsKitDbContext : AbpDbContext<CmsKitDbContext>, ICmsKitDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
         builder.ConfigureCmsKit();
+
+        base.OnModelCreating(builder);
     }
 }

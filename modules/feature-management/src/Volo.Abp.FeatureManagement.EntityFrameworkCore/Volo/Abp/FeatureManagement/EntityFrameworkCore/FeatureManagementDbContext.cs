@@ -23,8 +23,8 @@ public class FeatureManagementDbContext : AbpDbContext<FeatureManagementDbContex
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureFeatureManagement();
+
+        base.OnModelCreating(builder);
     }
 }

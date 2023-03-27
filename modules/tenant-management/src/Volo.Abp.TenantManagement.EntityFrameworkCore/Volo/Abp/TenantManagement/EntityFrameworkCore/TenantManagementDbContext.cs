@@ -20,8 +20,8 @@ public class TenantManagementDbContext : AbpDbContext<TenantManagementDbContext>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureTenantManagement();
+
+        base.OnModelCreating(builder);
     }
 }

@@ -63,13 +63,13 @@ public static string Schema { get; set; } = AbpIdentityConsts.DefaultDbSchema;
 ````C#
 protected override void OnModelCreating(ModelBuilder builder)
 {
-    base.OnModelCreating(builder);
-
     builder.ConfigureIdentity(options =>
     {
         options.TablePrefix = TablePrefix;
         options.Schema = Schema;
     });
+
+    base.OnModelCreating(builder);
 }
 ````
 

@@ -82,9 +82,6 @@ You can override the `OnModelCreating` method in your `DbContext` and configure 
 ````csharp
 protected override void OnModelCreating(ModelBuilder builder)
 {
-    //Always call the base method
-    base.OnModelCreating(builder);
-
     builder.Entity<Book>(b =>
     {
         b.ToTable("Books");
@@ -95,6 +92,9 @@ protected override void OnModelCreating(ModelBuilder builder)
         //Configure other properties (if you are using the fluent API)
         b.Property(x => x.Name).IsRequired().HasMaxLength(128);
     });
+
+    //Always call the base method
+    base.OnModelCreating(builder);
 }
 ````
 

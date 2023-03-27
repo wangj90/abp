@@ -164,8 +164,6 @@ namespace Acme.BookStore.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
 
             builder.ConfigurePermissionManagement();
@@ -180,6 +178,8 @@ namespace Acme.BookStore.EntityFrameworkCore
                 b.ConfigureByConvention(); //auto configure for the base class props
                 b.Property(x => x.Name).IsRequired().HasMaxLength(128);
             });
+
+            base.OnModelCreating(builder);
         }
     }
 }

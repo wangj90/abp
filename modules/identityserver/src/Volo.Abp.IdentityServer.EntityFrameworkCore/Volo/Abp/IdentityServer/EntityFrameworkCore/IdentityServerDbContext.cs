@@ -85,8 +85,8 @@ public class IdentityServerDbContext : AbpDbContext<IdentityServerDbContext>, II
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureIdentityServer();
+
+        base.OnModelCreating(builder);
     }
 }

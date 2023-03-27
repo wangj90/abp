@@ -19,8 +19,8 @@ public class BackgroundJobsDbContext : AbpDbContext<BackgroundJobsDbContext>, IB
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureBackgroundJobs();
+
+        base.OnModelCreating(builder);
     }
 }

@@ -30,8 +30,8 @@ public class IdentityDbContext : AbpDbContext<IdentityDbContext>, IIdentityDbCon
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
-
         builder.ConfigureIdentity();
+
+        base.OnModelCreating(builder);
     }
 }
